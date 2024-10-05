@@ -122,7 +122,8 @@ namespace StyleSheetExample
         [SerializeField] private PlayerStats _stats;
 
         // This limits the values to a Range and creates a slider in the Inspector.
-        [Range(0f, 1f)] [SerializeField] private float _rangedStat;
+        [Range(0f, 1f)] 
+        [SerializeField] private float _rangedStat;
 
         // A tooltip can replace a comment on a serialized field and do double duty.
         [Tooltip("This is another statistic for the player.")]
@@ -156,7 +157,8 @@ namespace StyleSheetExample
         public int Health { private get; set; }
 
         // write-only, without an explicit setter
-        public void SetMaxHealth(int newMaxValue) => _maxHealth = newMaxValue;
+        public void SetMaxHealth(int newMaxValue) => 
+            _maxHealth = newMaxValue;
 
         // auto-implemented property without backing field
         public string DescriptionName { get; set; } = "Fireball";
@@ -247,20 +249,15 @@ namespace StyleSheetExample
             }
 
             // BRACES: 
-            // - Keep braces for clarity when using single-line statements.
-            // - Or avoid single-line statement entirely for debuggability.
-            // - Keep braces in nested multi-line statements.
 
-            // This single-line statement keeps the braces...
-            for (int i = 0; i < 100; i++) { DoSomething(i); }
+            for (int i = 0; i < 100; i++)
+                DoSomething(i);
 
-            // ... but this is more debuggable. You can set a breakpoint on the clause.
             for (int i = 0; i < 100; i++)
             {
                 DoSomething(i);
             }
 
-            // Don't remove the braces here.
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
@@ -268,6 +265,10 @@ namespace StyleSheetExample
                     DoSomething(j);
                 }
             }
+
+            for (int i = 0; i < 10; i++)
+                for (int j = 0; j < 10; j++)
+                    DoSomething(j);
         }
 
         private void DoSomething(int x)
